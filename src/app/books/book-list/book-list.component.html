@@ -1,0 +1,14 @@
+<h1>Currently available Books</h1>
+<table>
+  <tr *ngFor="let book of books">
+    <td *ngIf="isUserAdmin()"><button>Edit</button></td>
+    <td>Title: {{book.title}}</td>
+    <td>ISBN: {{book.isbn}}</td>
+    <td>Pages: {{book.pages}}</td>
+
+    <td *ngIf="!book.available">Return Date: {{book.returnDate}}</td>
+    <td *ngIf="book.available">
+      <button (click)="borrowBook(book)">Borrow Book</button>
+    </td>
+  </tr>
+</table>

@@ -1,6 +1,6 @@
 // TODO: add routes
 import {RouterModule, Routes} from '@angular/router';
-import {BooksComponent} from './books/books/books.component';
+import {BookListComponent} from './books/book-list/book-list.component';
 
 const APP_ROUTER_PROVIDERS: Routes = [
   {
@@ -10,7 +10,7 @@ const APP_ROUTER_PROVIDERS: Routes = [
   },
   {
     path: 'books',
-    component: BooksComponent
+    component: BookListComponent
   }
 ];
 export const ROUTING = RouterModule.forRoot(APP_ROUTER_PROVIDERS);
