@@ -4,6 +4,7 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {BooksModule} from './books/books.module';
+import {ROUTING} from './app.routes';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import {BooksModule} from './books/books.module';
   ],
   imports: [
     BrowserModule,
-    BooksModule
+    BooksModule,
+    ROUTING
   ],
   providers: [],
   bootstrap: [AppComponent]
