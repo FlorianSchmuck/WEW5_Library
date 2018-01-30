@@ -1,7 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {Book} from '../model/book.model';
-import {until} from 'selenium-webdriver';
-import ableToSwitchToFrame = until.ableToSwitchToFrame;
 import {BackendService} from '../../shared/backend.service';
 
 @Component({
@@ -26,6 +24,9 @@ export class BookListComponent implements OnInit {
     this.books.push(book2);
     this.books.push(book3);
     this.books.push(book4);
+    this.backendService.get('books').subscribe((books) => {
+      this.books = books;
+    });
   }
 
   createBook(title: string, available: boolean, isbn: string): Book {
