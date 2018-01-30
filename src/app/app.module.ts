@@ -6,11 +6,13 @@ import {AppComponent} from './app.component';
 import {BooksModule} from './books/books.module';
 import {ROUTING} from './app.routes';
 import {SharedModule} from './shared/shared.module';
+import {UsersListComponent} from './users-list/users-list.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    UsersListComponent
   ],
   imports: [
     BrowserModule,
