@@ -5,9 +5,14 @@
     <td>ISBN: {{book.isbn}}</td>
     <td>Pages: {{book.pages}}</td>
 
-    <td *ngIf="!book.available">Return Date: {{book.returnDate}}</td>
-    <td *ngIf="book.available">
+    <td *ngIf="book.returnDate">Return Date: {{book.returnDate}}</td>
+    <td *ngIf="!book.returnDate">
       <button (click)="borrowBook(book)">Borrow Book</button>
+    </td>
+    <td>
+      <button class="btn btn-default"
+              [routerLink]="['/books', book.isbn]">Show Book
+      </button>
     </td>
   </tr>
 </table>

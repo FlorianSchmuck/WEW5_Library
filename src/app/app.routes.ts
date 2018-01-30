@@ -1,25 +1,30 @@
 // TODO: add routes
-import {RouterModule, Routes} from '@angular/router';
-import {BookListComponent} from './books/book-list/book-list.component';
-import { UsersListComponent } from './users/users-list/users-list.component';
-import { UserComponent } from './users/user/user.component';
+import {RouterModule, Routes} from "@angular/router";
+import {BookListComponent} from "./books/book-list/book-list.component";
+import {UsersListComponent} from "./users/users-list/users-list.component";
+import {UserComponent} from "./users/user/user.component";
+import {BooksComponent} from "./books/book/books.component";
 
 const APP_ROUTER_PROVIDERS: Routes = [
   {
-    path: '',
-    redirectTo: 'books',
-    pathMatch: 'full'
+    path: "",
+    redirectTo: "books",
+    pathMatch: "full"
   },
   {
-    path: 'books',
+    path: "books",
     component: BookListComponent
   },
   {
-    path: 'users',
+    path: "books/:id",
+    component: BooksComponent
+  },
+  {
+    path: "users",
     component: UsersListComponent
   },
   {
-    path: 'users/:id',
+    path: "users/:id",
     component: UserComponent
   }
 ];

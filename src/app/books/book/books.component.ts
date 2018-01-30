@@ -1,19 +1,30 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Book} from '../model/book.model';
+import {Component, OnInit} from "@angular/core";
+import {ActivatedRoute} from "@angular/router";
+import {BookService} from "../book-service.service";
+import {Book} from "../model/book.model";
 
 @Component({
-  selector: 'app-books',
-  templateUrl: './books.component.html',
-  styleUrls: ['./books.component.css']
+  selector: "app-books",
+  templateUrl: "./books.component.html",
+  styleUrls: ["./books.component.css"]
 })
 export class BooksComponent implements OnInit {
 
-  @Input() selectedBook: Book;
+  private isbn: string;
+  private selectedBook: Book;
 
-  constructor() {
+  constructor(private route: ActivatedRoute,
+              private bookService: BookService) {
+    this.route.params.subscribe(params => {
+      console.log(params["id"]);
+      this.isbn = params["id"];
+    });
   }
 
   ngOnInit() {
+    this.selectedBook = this.bookService.allBooks.find((book) => {
+      return book.isbn === this.isbn;
+    });
   }
 
 }
