@@ -1,0 +1,66 @@
+
+  <div class="user">
+  
+    <div class="header">
+        <h2 class="title">Flight Search!</h2>
+    </div>
+    <div class="content">
+    
+    <form #f="ngForm">
+    
+        <div class="form-group">
+            <label>From:</label>
+            <input [(ngModel)]="from" name="from" class="form-control" city="Hamburg,Graz,Wien" 
+            required 
+            minlength="3">
+        </div>
+        <div *ngIf="f.controls['from']?.hasError('required')"> [required]</div>
+        <div class="form-group">
+            <label>To:</label>
+            <input [(ngModel)]="to" name="to" class="form-control">
+        </div>
+    
+        <div class="form-group">
+            <button 
+                (click)="search()"
+                class="btn btn-default">
+                Search
+            </button>
+        </div>
+    </form>
+    
+    </div>
+    </div>
+
+  <div class="user">
+  
+    <div class="header">
+        <h2 class="title">Flight Search!</h2>
+    </div>
+    <div class="content">
+    
+    <form #f="ngForm">
+    
+        <div class="form-group">
+            <label>From:</label>
+            <input [(ngModel)]="from" name="from" class="form-control" city="Hamburg,Graz,Wien" 
+            required 
+            minlength="3">
+        </div>
+        <div *ngIf="f.controls['from']?.hasError('required')"> [required]</div>
+        <div class="form-group">
+            <label>To:</label>
+            <input [(ngModel)]="to" name="to" class="form-control">
+        </div>
+    
+        <div class="form-group">
+            <button 
+                (click)="search()"
+                class="btn btn-default">
+                Search
+            </button>
+        </div>
+    </form>
+    
+    </div>
+    </div>

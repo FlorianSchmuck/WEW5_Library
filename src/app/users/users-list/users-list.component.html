@@ -1,0 +1,15 @@
+<h1>Users</h1>
+<table>
+  <tr *ngFor="let user of users">
+    <td>Name: {{user.firstName}}</td>
+    <td>eMail: {{user.eMail}}</td>
+    <td>Password: xxxxx</td>
+    <div class="form-group">
+      <button 
+          class="btn btn-default"
+          [routerLink]="['/users', user.userId]" >
+          Modify
+      </button>
+  </div>
+  </tr>
+</table>
