@@ -7,12 +7,13 @@ export class UserStorageService implements OnInit {
     
     storedUsers: User[];
     constructor(private backEndService: BackendService) {
-    }
-
-    ngOnInit(): void {
         this.backEndService.get("users").subscribe((users) => {
             this.storedUsers = users;
         });
+    }
+
+    ngOnInit(): void {
+
     }
     
     get users(): User[]{

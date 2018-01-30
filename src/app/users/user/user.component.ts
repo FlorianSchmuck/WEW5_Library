@@ -3,7 +3,6 @@ import { User } from '../model/user';
 import { BackendService } from '../../shared/backend.service';
 import { UserStorageService } from '../services/userstorage.service';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-user',
@@ -14,7 +13,8 @@ export class UserComponent implements OnInit {
     selectedUser:User;
     selectedUserId:number;
 
-    constructor(private userstorageService:UserStorageService,route:ActivatedRoute) {
+    constructor(private userstorageService:UserStorageService,
+      route:ActivatedRoute) {
       route.params.subscribe(params => {
         console.log(+params['id']);
         this.selectedUserId = +params['id'];
@@ -23,16 +23,9 @@ export class UserComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.selectedUserId);
-    this.selectedUser = this.searchUserById(this.selectedUserId);
-  }
-
-  searchUserById(id:number):User{
     let users = this.userstorageService.users;
-    for(var user of users){
-      if(user.userId == id) 
-        return user;
-    }
+    this.selectedUser = users.find( (user)=> {
+      return user.userId === this.selectedUserId
+    });
   }
-
-
 }
