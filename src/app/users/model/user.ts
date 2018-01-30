@@ -1,8 +1,8 @@
-export class User{
-    firstName: string;
-    lastName: string;
-    eMail: string;
-    password : string;
-    bitCoinWalletPrivateKey: string;
-    userId : number;
+export class User {
+  firstname: string;
+  lastname: string;
+  eMail: string;
+  password: string;
+  bitCoinWalletPrivateKey: string;
+  userId: number;
 }

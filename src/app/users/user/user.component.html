@@ -1,34 +1,34 @@
 
   <div class="user">
-  
+
     <div class="header">
         <h2 class="title">Flight Search!</h2>
     </div>
     <div class="content">
-    
+
     <form #f="ngForm">
-    
+
         <div class="form-group">
             <label>From:</label>
-            <input [(ngModel)]="selectedUser.firstName" name="firstname" class="form-control" 
-            required 
+            <input [(ngModel)]="selectedUser.firstname" name="firstname" class="form-control"
+            required
             minlength="3">
         </div>
         <div *ngIf="f.controls['firstname']?.hasError('required')"> [required]</div>
         <div class="form-group">
             <label>To:</label>
-            <input [(ngModel)]="selectedUser.lastName" name="lastName" class="form-control">
+            <input [(ngModel)]="selectedUser.lastname" name="lastname" class="form-control">
         </div>
         <div *ngIf="f.controls['lastName']?.hasError('required')"> [required]</div>
         <div class="form-group">
-            <button 
-             
+            <button
+
                 class="btn btn-default">
                 Search
             </button>
         </div>
     </form>
-    
+
     </div>
     </div>
 

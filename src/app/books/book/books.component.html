@@ -1,3 +1,9 @@
+<button (click)="changeBook()">Edit Book</button>
 <div>
-  {{selectedBook | json}}
+  <div *ngIf="editMode">
+    <button (click)="updateBook()"></button>
+  </div>
+  <div *ngIf="!editMode">
+    {{selectedBook | json}}
+  </div>
 </div>

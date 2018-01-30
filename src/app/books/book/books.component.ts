@@ -12,6 +12,7 @@ export class BooksComponent implements OnInit {
 
   private isbn: string;
   private selectedBook: Book;
+  private editMode: boolean = false;
 
   constructor(private route: ActivatedRoute,
               private bookService: BookService) {
@@ -25,6 +26,10 @@ export class BooksComponent implements OnInit {
     this.selectedBook = this.bookService.allBooks.find((book) => {
       return book.isbn === this.isbn;
     });
+  }
+
+  public changeBook() {
+    this.editMode = true;
   }
 
 }

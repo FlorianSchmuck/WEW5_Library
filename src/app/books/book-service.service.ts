@@ -5,7 +5,7 @@ import {Book} from "./model/book.model";
 @Injectable()
 export class BookService {
 
-  public books: Array<Book>;
+  private books: Array<Book>;
 
   constructor(private backendService: BackendService) {
     this.backendService.get("books").subscribe((books) => {
