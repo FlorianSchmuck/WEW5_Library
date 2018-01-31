@@ -5,11 +5,13 @@ import {BooksModule} from './books/books.module';
 import {ROUTING} from './app.routes';
 import {SharedModule} from './shared/shared.module';
 import { UserModule } from './users/user.module';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

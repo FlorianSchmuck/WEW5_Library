@@ -5,12 +5,17 @@ import {UsersListComponent} from "./users/users-list/users-list.component";
 import {UserComponent} from "./users/user/user.component";
 import {BooksComponent} from "./books/book/books.component";
 import {NewBookComponent} from "./books/new-book/new-book.component";
+import {HomeComponent} from "./home/home.component";
 
 const APP_ROUTER_PROVIDERS: Routes = [
   {
     path: "",
-    redirectTo: "books",
+    redirectTo: "home",
     pathMatch: "full"
+  },
+  {
+    path: "home",
+    component: HomeComponent
   },
   {
     path: "books",
