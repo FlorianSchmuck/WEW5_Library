@@ -12,7 +12,7 @@ export class BooksComponent implements OnInit {
 
   private isbn: string;
   private selectedBook: Book;
-  private editMode: boolean = false;
+  private editMode = false;
 
   constructor(private route: ActivatedRoute,
               private bookService: BookService) {
@@ -30,6 +30,10 @@ export class BooksComponent implements OnInit {
 
   public changeBook() {
     this.editMode = true;
+  }
+
+  public updateBook() {
+    this.bookService.updateBook(this.selectedBook);
   }
 
 }

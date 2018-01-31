@@ -17,4 +17,12 @@ export class BookService {
     return this.books;
   }
 
+  updateBook(selectedBook: Book) {
+    this.backendService.put("/books/" + selectedBook.isbn, selectedBook).subscribe((updatedBook) => {
+      let bookToUpdate = this.books.find((book) => {
+        return book.isbn === updatedBook.isbn;
+      });
+      bookToUpdate = updatedBook;
+    });
+  }
 }
