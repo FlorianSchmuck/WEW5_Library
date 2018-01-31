@@ -27,6 +27,10 @@
     </form>
   </div>
   <div *ngIf="!editMode">
-    {{selectedBook | json}}
+    <label>Title: {{selectedBook.title}}</label>
+    <label>Author: {{selectedBook.author}}</label>
+    <label>Pages: {{selectedBook.pages}}</label>
+    <label>ISBN: {{selectedBook.isbn}}</label>
+    <label>Available: {{selectedBook.available}}</label>
   </div>
 </div>
