@@ -1,5 +1,5 @@
 import {Component, OnInit} from "@angular/core";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {BookService} from "../book-service.service";
 import {Book} from "../model/book.model";
 
@@ -16,7 +16,8 @@ export class BooksComponent implements OnInit {
   private editMode = false;
 
   constructor(private route: ActivatedRoute,
-              private bookService: BookService) {
+              private bookService: BookService,
+              private router: Router) {
     this.route.params.subscribe(params => {
       console.log(params["id"]);
       this.isbn = params["id"];
@@ -43,6 +44,7 @@ export class BooksComponent implements OnInit {
       });
       bookToUpdate = updatedBook;
     });
+    this.router.navigateByUrl("/books");
   }
 
 }
