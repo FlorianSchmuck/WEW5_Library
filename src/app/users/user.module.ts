@@ -4,7 +4,7 @@ import { UserComponent } from './user/user.component';
 import { UsersListComponent } from './users-list/users-list.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { UserStorageService } from './services/userstorage.service';
+import { UserService } from './services/user.service';
 
 
 @NgModule({
@@ -16,7 +16,7 @@ import { UserStorageService } from './services/userstorage.service';
   declarations: [UserComponent,UsersListComponent
   ],
   providers:[
-    UserStorageService
+    UserService
   ]
 })
 export class UserModule { }

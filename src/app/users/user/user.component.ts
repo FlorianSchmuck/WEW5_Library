@@ -1,7 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {User} from "../model/user";
-import {UserStorageService} from "../services/userstorage.service";
-import {ActivatedRoute} from "@angular/router";
+import {UserService} from "../services/user.service";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: "app-user",
@@ -9,21 +9,39 @@ import {ActivatedRoute} from "@angular/router";
   styleUrls: ["./user.component.css"]
 })
 export class UserComponent implements OnInit {
-  selectedUser: User;
-  selectedUserId: number;
+  private userId: number;
+  private selectedUser: User;
+  private users: Array<User>;
+  private editMode = false;
 
-  constructor(private userstorageService: UserStorageService,
-              route: ActivatedRoute) {
-    route.params.subscribe(params => {
-      console.log(+params["id"]);
-      this.selectedUserId = +params["id"];
+  constructor(private route: ActivatedRoute,
+  private userService: UserService,
+  private router: Router) {
+      this.route.params.subscribe(params => {
+      console.log(params["id"]);
+      this.userId = params["id"];
     });
   }
-
   ngOnInit() {
-    console.log(this.selectedUserId);
-    this.selectedUser = this.userstorageService.users.find((user) => {
-      return user.userId === this.selectedUserId;
+    this.userService.getAllUsers().subscribe((books) => {
+      this.users = books;
+      this.selectedUser = this.users.find((b) => {
+        return b.userId === this.userId;
+      });
     });
+  }
+  public changeUser() {
+    this.editMode = true;
+  }
+
+  public updateUser() {
+    this.userService.updateUser(this.selectedUser).subscribe((updatedUser) => {
+      let userToUpdate = this.users.find((user) => {
+        return user.userId === updatedUser.isbn;
+      });
+      userToUpdate = updatedUser;
+    });
+    this.router.navigateByUrl("/users");
   }
 }
+

@@ -1,6 +1,6 @@
 import {Component, OnInit} from "@angular/core";
 import {User} from "../model/user";
-import {UserStorageService} from "../services/userstorage.service";
+import {UserService} from "../services/user.service";
 
 @Component({
   selector: "app-users-list",
@@ -10,13 +10,15 @@ import {UserStorageService} from "../services/userstorage.service";
 export class UsersListComponent implements OnInit {
   users: User[];
 
-  constructor(private userService: UserStorageService) {
+  constructor(private userService: UserService) {
     this.users = [];
   }
 
 
   ngOnInit() {
-    this.users = this.userService.users;
+      this.userService.getAllUsers().subscribe((allusers) => {
+      this.users = allusers;
+    })
   }
 
   createUser(name: string, eMail: string, pw: string, privatebckey: string, id: number): User {
