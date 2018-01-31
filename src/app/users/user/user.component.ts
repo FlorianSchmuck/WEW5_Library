@@ -10,7 +10,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class UserComponent implements OnInit {
   private userId: number;
-  private selectedUser: User;
+  public selectedUser: User;
   private users: Array<User>;
   private editMode = false;
 
