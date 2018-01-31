@@ -1,5 +1,5 @@
 <h1>Currently available Books</h1>
-<button routerLink="/newbook">Add new Book</button>
+<button class="btn btn-default" routerLink="/newbook">Add new Book</button>
 <table>
   <tr *ngFor="let book of books">
     <td>Title: {{book.title}}</td>
@@ -8,7 +8,7 @@
 
     <td *ngIf="book.returnDate">Return Date: {{book.returnDate}}</td>
     <td *ngIf="!book.returnDate">
-      <button (click)="borrowBook(book)">Borrow Book</button>
+      <button class="btn btn-default" (click)="borrowBook(book)">Borrow Book</button>
     </td>
     <td>
       <button class="btn btn-default"
