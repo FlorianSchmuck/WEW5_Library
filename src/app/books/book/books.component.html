@@ -1,4 +1,6 @@
-<button (click)="changeBook()">Edit Book</button>
+<button class="btn btn-default"
+        (click)="changeBook()">Edit Book
+</button>
 <div>
   <div *ngIf="editMode">
     <form #f="ngForm">
@@ -14,7 +16,8 @@
         <input [(ngModel)]="selectedBook.author" name="author" class="form-control">
       </div>
       <div *ngIf="f.controls['author']?.hasError('required')"> [required]</div>
-      <div *ngIf="!f.controls['author']?.hasError('required') && !f.controls['title']?.hasError('required')" class="form-group">
+      <div *ngIf="!f.controls['author']?.hasError('required') && !f.controls['title']?.hasError('required')"
+           class="form-group">
         <button
           class="btn btn-default"
           (click)="updateBook()">

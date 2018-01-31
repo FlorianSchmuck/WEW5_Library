@@ -5,8 +5,9 @@ import {BookService} from "../book-service.service";
 @Component({
   selector: "app-book-list",
   templateUrl: "./book-list.component.html",
-  styleUrls: ["./book-list.component.css"]
+  styleUrls: ["./book-list.component.css"],
 })
+
 export class BookListComponent implements OnInit {
 
   books: Array<Book>;
@@ -16,7 +17,18 @@ export class BookListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.books = this.bookService.allBooks;
+    this.bookService.getAllBooks().subscribe((books) => {
+      this.books = books;
+    });
+  }
+
+  public deleteBook(book: Book) {
+    this.bookService.deleteBook(book).subscribe((deletedBook) => {
+      const bookToDelete = this.books.find((b) => {
+        return b.isbn === deletedBook.isbn;
+      });
+      this.books.splice(this.books.indexOf(bookToDelete), 1);
+    });
   }
 
 }

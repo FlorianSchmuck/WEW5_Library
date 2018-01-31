@@ -5,6 +5,7 @@ import {BookListComponent} from "./book-list/book-list.component";
 import {BookService} from "./book-service.service";
 import {RouterModule} from "@angular/router";
 import {FormsModule} from "@angular/forms";
+import { NewBookComponent } from './new-book/new-book.component';
 
 @NgModule({
   imports: [
@@ -12,7 +13,7 @@ import {FormsModule} from "@angular/forms";
     RouterModule,
     FormsModule
   ],
-  declarations: [BooksComponent, BookListComponent],
+  declarations: [BooksComponent, BookListComponent, NewBookComponent],
   providers: [BookService]
 })
 export class BooksModule {

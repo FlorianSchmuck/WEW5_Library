@@ -1,4 +1,5 @@
 <h1>Currently available Books</h1>
+<button routerLink="/newbook">Add new Book</button>
 <table>
   <tr *ngFor="let book of books">
     <td>Title: {{book.title}}</td>
@@ -12,6 +13,11 @@
     <td>
       <button class="btn btn-default"
               [routerLink]="['/books', book.isbn]">Show Book
+      </button>
+    </td>
+    <td>
+      <button class="btn btn-default"
+              (click)="deleteBook(book)">Delete Book
       </button>
     </td>
   </tr>

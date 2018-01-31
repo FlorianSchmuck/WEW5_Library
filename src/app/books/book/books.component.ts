@@ -12,6 +12,7 @@ export class BooksComponent implements OnInit {
 
   private isbn: string;
   private selectedBook: Book;
+  private books: Array<Book>;
   private editMode = false;
 
   constructor(private route: ActivatedRoute,
@@ -23,8 +24,11 @@ export class BooksComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.selectedBook = this.bookService.allBooks.find((book) => {
-      return book.isbn === this.isbn;
+    this.bookService.getAllBooks().subscribe((books) => {
+      this.books = books;
+      this.selectedBook = this.books.find((b) => {
+        return b.isbn === this.isbn;
+      });
     });
   }
 
@@ -33,7 +37,12 @@ export class BooksComponent implements OnInit {
   }
 
   public updateBook() {
-    this.bookService.updateBook(this.selectedBook);
+    this.bookService.updateBook(this.selectedBook).subscribe((updatedBook) => {
+      let bookToUpdate = this.books.find((book) => {
+        return book.isbn === updatedBook.isbn;
+      });
+      bookToUpdate = updatedBook;
+    });
   }
 
 }
