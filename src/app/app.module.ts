@@ -6,13 +6,15 @@ import {ROUTING} from './app.routes';
 import {SharedModule} from './shared/shared.module';
 import { UserModule } from './users/user.module';
 import { HomeComponent } from './home/home.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
-  ],
+    HomeComponent,
+    NavbarComponent
+],
   imports: [
     BrowserModule,
     BooksModule,
