@@ -1,9 +1,11 @@
-<div id="header"></div>
-<div id="sidebar">
-  <button class="btn btn-default" routerLink="/books">Books</button>
-  <button class="btn btn-default" routerLink="/users">Users</button>
+<div class="wrapper">
+  <div class="sidebar" data-background-color="white" data-active-color="danger">
+    <app-sidebar></app-sidebar>
+  </div>
+  <div class = "mainpanel">
+      <div class="content">
+        <router-outlet></router-outlet>
+      </div>
+  </div>
+
 </div>
-<div>
-  <router-outlet></router-outlet>
-</div>
-<div id="footer"></div>

@@ -7,13 +7,15 @@ import {SharedModule} from './shared/shared.module';
 import { UserModule } from './users/user.module';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    NavbarComponent
+    HomeComponent,
+    NavbarComponent,
+    SidebarComponent
 ],
   imports: [
     BrowserModule,
