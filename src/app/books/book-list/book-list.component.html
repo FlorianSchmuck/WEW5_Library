@@ -1,24 +1,27 @@
-<h1>Currently available Books</h1>
-<button class="btn btn-default" routerLink="/newbook">Add new Book</button>
-<table>
-  <tr *ngFor="let book of books">
-    <td>Title: {{book.title}}</td>
-    <td>ISBN: {{book.isbn}}</td>
-    <td>Pages: {{book.pages}}</td>
-
-    <td *ngIf="book.returnDate">Return Date: {{book.returnDate}}</td>
-    <td *ngIf="!book.returnDate">
-      <button class="btn btn-default" (click)="borrowBook(book)">Borrow Book</button>
-    </td>
-    <td>
-      <button class="btn btn-default"
-              [routerLink]="['/books', book.isbn]">Show Book
-      </button>
-    </td>
-    <td>
-      <button class="btn btn-default"
-              (click)="deleteBook(book)">Delete Book
-      </button>
-    </td>
-  </tr>
-</table>
+<div class="header">
+  <h1>Currently available Books</h1>
+  <button class="btn btn-default" routerLink="/newbook">Add new Book</button>
+</div>
+<div class="card-group" *ngFor="let book of books">
+  <div class="card">
+    <div class="header">
+      <h4 class="card-title">Title: {{book.title}}</h4>
+    </div>
+    <p class="card-text">ISBN: {{book.isbn}}</p>
+    <p class="card-text">Pages: {{book.pages}}</p>
+    <p class="card-text" *ngIf="book.returnDate">Return Date: {{book.returnDate}} {{book.pages}}</p>
+    <div class="container col-lg-offset-3">
+      <span *ngIf="!book.returnDate">
+        <button class="btn btn-default" (click)="borrowBook(book)">Borrow Book</button>
+      </span>
+      <span>
+        <button class="btn btn-default" [routerLink]="['/books', book.isbn]">Show Book</button>
+      </span>
+      <span>
+        <button class="btn btn-default"
+                (click)="deleteBook(book)">Delete Book
+        </button>
+      </span>
+    </div>
+  </div>
+</div>

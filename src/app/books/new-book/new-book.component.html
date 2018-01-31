@@ -1,37 +1,42 @@
-<form #f="ngForm">
-  <div class="form-group">
-    <label>Title</label>
-    <input [(ngModel)]="book.title" name="title" class="form-control"
-           required
-           minlength="3">
-  </div>
-  <div *ngIf="f.controls['title']?.hasError('required')"> [required]</div>
-  <div class="form-group">
-    <label>Author:</label>
-    <input [(ngModel)]="book.author" name="author" class="form-control">
-  </div>
-  <div *ngIf="f.controls['author']?.hasError('required')"> [required]</div>
-  <div class="form-group">
-    <label>Pages</label>
-    <input [(ngModel)]="book.pages" name="pages" class="form-control"
-           required
-           minlength="3">
-  </div>
-  <div *ngIf="f.controls['pages']?.hasError('required')"> [required]</div>
-  <div class="form-group">
-    <label>ISBN</label>
-    <input [(ngModel)]="book.isbn" name="isbn" class="form-control"
-           required
-           minlength="13">
-  </div>
-  <div *ngIf="f.controls['isbn']?.hasError('minlength')"> [minlength=13]</div>
-  <div *ngIf="!f.controls['author']?.hasError('required')
-  && !f.controls['title']?.hasError('required')"
-       class="form-group">
-    <button
-      class="btn btn-default"
-      (click)="createBook()">
-      Submit
-    </button>
-  </div>
-</form>
+<div class="card">
+  <form #f="ngForm">
+    <div class="form-group">
+      <h4 class="card-header">Title</h4>
+      <input [(ngModel)]="book.title" name="title" class="form-control border-input"
+             required
+             minlength="3">
+    </div>
+    <div *ngIf="f.controls['title']?.hasError('required')"> [required]</div>
+    <div class="form-group">
+      <h4 class="card-header">Author:</h4>
+      <input [(ngModel)]="book.author" name="author" class="form-control border-input" required>
+    </div>
+    <div *ngIf="f.controls['author']?.hasError('required')"> [required]</div>
+    <div class="form-group">
+      <h4 class="card-header">Pages</h4>
+      <input [(ngModel)]="book.pages" name="pages" class="form-control border-input"
+             required
+             minlength="3">
+    </div>
+    <div *ngIf="f.controls['pages']?.hasError('required')"> [required]</div>
+    <div class="form-group">
+      <h4 class="card-header">ISBN</h4>
+      <input [(ngModel)]="book.isbn" name="isbn" class="form-control border-input"
+             required
+             minlength="13">
+    </div>
+    <div *ngIf="f.controls['isbn']?.hasError('minlength')"> [minlength=13]</div>
+    <div *ngIf="f.controls['isbn']?.hasError('required')"> [required]</div>
+    <div *ngIf="!f.controls['author']?.hasError('required')
+  && !f.controls['pages']?.hasError('required')
+  && !f.controls['isbn']?.hasError('minlength')
+  && !f.controls['isbn']?.hasError('required')"
+         class="form-group">
+      <button
+        class="btn btn-default"
+        (click)="createBook()">
+        Submit
+      </button>
+    </div>
+  </form>
+</div>
