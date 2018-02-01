@@ -22,6 +22,7 @@ export class UserService {
   }
 
   deleteUser(user: User) {
+    console.log(user.userId);
     return this.backendService.delete("users/" + user.userId);
   }
 }

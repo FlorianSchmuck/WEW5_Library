@@ -1,6 +1,6 @@
 <h1>Users</h1>
 <div>
-  <button class="btn btn-default" routerLink="/newusers">
+  <button class="btn btn-default" *ngIf="checkIfUserHasRight()" routerLink="/newusers">
     Add User
   </button>
 </div>
@@ -24,9 +24,14 @@
         <td>{{user?.role}}</td>
         <td>
           <div class="form-group">
-            <button class="btn btn-default" [routerLink]="['/users', user.userId]">
+            <button class="btn btn-default" *ngIf="checkIfUserHasRight()" [routerLink]="['/users', user.userId]">
               Modify
             </button>
+            <span *ngIf="checkIfUserHasRight()">
+                <button class="btn btn-default"
+                        (click)="deleteUser(user)">Delete
+                </button>
+              </span>
           </div>
         </td>
       </tr>
