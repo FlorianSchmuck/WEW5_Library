@@ -19,7 +19,7 @@ export class UserComponent implements OnInit {
   private router: Router) {
       this.route.params.subscribe(params => {
       console.log(params["id"]);
-      this.userId = params["id"];
+      this.userId = +params["id"];
     });
   }
   ngOnInit() {

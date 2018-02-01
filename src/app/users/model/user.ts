@@ -5,4 +5,5 @@ export class User {
   password: string;
   bitCoinWalletPrivateKey: string;
   userId: number;
+  role: string;
 }

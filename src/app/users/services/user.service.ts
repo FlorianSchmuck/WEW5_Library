@@ -13,14 +13,14 @@ export class UserService {
   }
 
   updateUser(selectedUser: User) {
-    return this.backendService.put("/users/" + selectedUser.userId, selectedUser);
+    return this.backendService.put("users/" + selectedUser.userId, selectedUser);
   }
 
   createNewUser(user: User) {
-    return this.backendService.post("/users", user);
+    return this.backendService.post("users", user);
   }
 
   deleteUser(user: User) {
-    return this.backendService.delete("/users/" + user.userId);
+    return this.backendService.delete("users/" + user.userId);
   }
 }
