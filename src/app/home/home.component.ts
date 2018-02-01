@@ -1,4 +1,8 @@
 import {Component, OnInit} from "@angular/core";
+import {AuthenticatedUserService} from "../shared/authenticated-user.service";
+import {LoginService} from "./login.service";
+import {Login} from "./login.model";
+import {User} from "../users/model/user";
 
 @Component({
   selector: "app-home",
@@ -7,10 +11,27 @@ import {Component, OnInit} from "@angular/core";
 })
 export class HomeComponent implements OnInit {
 
-  constructor() {
+  login: Login;
+  authenticatedUser: User;
+
+  constructor(private authenticatedUserService: AuthenticatedUserService,
+              private loginService: LoginService) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.login = new Login();
+    this.authenticatedUser = this.authenticatedUserService.authenticatedUser;
+  }
+
+  submit() {
+    console.log(this.login);
+    this.loginService.authenticate(this.login).subscribe((user) => {
+      this.authenticatedUserService.authenticatedUser = user;
+      console.log(user);
+      this.authenticatedUser = user;
+    }, (error) => {
+      this.authenticatedUserService.authenticatedUser = null;
+    });
   }
 
 }

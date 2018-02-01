@@ -4,6 +4,7 @@ import {Observable} from "rxjs/Observable";
 import {API_URL} from "./common";
 import {User} from "../users/model/user";
 import {Book} from "../books/model/book.model";
+import {Login} from "../home/login.model";
 
 @Injectable()
 export class BackendService {
@@ -15,7 +16,7 @@ export class BackendService {
     return this.http.get(API_URL + path);
   }
 
-  public post(path: string, body: User | Book): Observable<any> {
+  public post(path: string, body: User | Book | Login): Observable<any> {
     return this.http.post(API_URL + path, body);
   }
 
