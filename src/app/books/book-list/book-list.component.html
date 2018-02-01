@@ -1,5 +1,6 @@
 <div>
   <h1>Available Books</h1>
+  <a *ngIf="!authUser" routerLink="/home">Log in to borrow books</a>
   <button class="btn btn-default" *ngIf="checkIfUserHasRight()" routerLink="/newbook">Add new Book</button>
 </div>
 <div class="card-group" *ngFor="let book of books">
@@ -10,7 +11,7 @@
     <p class="card-text">Author: {{book.author}}</p>
     <p class="card-text">ISBN: {{book.isbn}}</p>
     <p class="card-text">Pages: {{book.pages}}</p>
-    <p class="card-text" *ngIf="book.returnDate">Return Date: {{book.returnDate}} {{book.pages}}</p>
+    <p class="card-text" *ngIf="book.returnDate">Return Date: {{book.returnDate}}</p>
     <div class="container col-lg-offset-3">
       <span *ngIf="checkIfBookCanBeBorrowed(book)">
         <button class="btn btn-default" (click)="borrowBook(book)">Borrow Book</button>
