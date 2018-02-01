@@ -2,6 +2,9 @@ import {Component, OnInit} from "@angular/core";
 import {ActivatedRoute, Router} from "@angular/router";
 import {BookService} from "../book-service.service";
 import {Book} from "../model/book.model";
+import {AuthenticatedUserService} from "../../shared/authenticated-user.service";
+import {User} from "../../users/model/user";
+import {UserRoles} from "../../shared/user-roles";
 
 @Component({
   selector: "app-books",
@@ -14,14 +17,17 @@ export class BooksComponent implements OnInit {
   private selectedBook: Book;
   private books: Array<Book>;
   private editMode = false;
+  private authUser: User;
 
   constructor(private route: ActivatedRoute,
               private bookService: BookService,
-              private router: Router) {
+              private router: Router,
+              private authService: AuthenticatedUserService) {
     this.route.params.subscribe(params => {
       console.log(params["id"]);
       this.isbn = params["id"];
     });
+    this.authUser = this.authService.authenticatedUser;
   }
 
   ngOnInit() {
@@ -35,6 +41,10 @@ export class BooksComponent implements OnInit {
 
   public changeBook() {
     this.editMode = true;
+  }
+
+  public checkIfUserHasRight() {
+    return this.authUser && this.authUser.role === UserRoles.ADMIN;
   }
 
   public updateBook() {

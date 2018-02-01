@@ -1,6 +1,6 @@
 <div>
   <h1>Available Books</h1>
-  <button class="btn btn-default" routerLink="/newbook">Add new Book</button>
+  <button class="btn btn-default" *ngIf="checkIfUserHasRight()" routerLink="/newbook">Add new Book</button>
 </div>
 <div class="card-group" *ngFor="let book of books">
   <div class="card">
@@ -12,13 +12,13 @@
     <p class="card-text">Pages: {{book.pages}}</p>
     <p class="card-text" *ngIf="book.returnDate">Return Date: {{book.returnDate}} {{book.pages}}</p>
     <div class="container col-lg-offset-3">
-      <span *ngIf="!book.returnDate">
+      <span *ngIf="checkIfBookCanBeBorrowed(book)">
         <button class="btn btn-default" (click)="borrowBook(book)">Borrow Book</button>
       </span>
       <span>
         <button class="btn btn-default" [routerLink]="['/books', book.isbn]">Show Book</button>
       </span>
-      <span>
+      <span *ngIf="checkIfUserHasRight()">
         <button class="btn btn-default"
                 (click)="deleteBook(book)">Delete Book
         </button>

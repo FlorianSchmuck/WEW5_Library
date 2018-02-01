@@ -31,7 +31,7 @@
     <p class="card-text">Available: {{selectedBook.available}}</p>
     <p class="card-text">Return date: {{selectedBook.returnDate}}</p>
   </div>
-  <button *ngIf="!editMode" class="btn btn-default"
+  <button *ngIf="!editMode && checkIfUserHasRight()" class="btn btn-default"
           (click)="changeBook()">Edit Book
   </button>
 </div>
