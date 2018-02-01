@@ -27,6 +27,12 @@
       </div>
       <div *ngIf="f.controls['pkbc']?.hasError('required')"> [required]</div>
       <div *ngIf="!f.controls['pkbc']?.hasError('required') && !f.controls['pkbc']?.hasError('required')" class="form-group">
+      <div class="form-group">
+          <h4 class="card-header">Password:</h4>
+          <input [(ngModel)]="selectedUser.password" name="password" class="form-control border-input" required type="password">
+        </div>
+        <div *ngIf="f.controls['password']?.hasError('required')"> [required]</div>
+
       <button class="btn btn-default" type="button" (click)="updateUser()">
         Submit
       </button>

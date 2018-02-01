@@ -17,10 +17,8 @@ export class NewUserComponent implements OnInit {
 
    }
 
-
   ngOnInit() {
     this.userToCreate = new User();
-    this.userToCreate.userId = 13232;
   }
 
   createNewUser(){
@@ -30,5 +28,4 @@ export class NewUserComponent implements OnInit {
     });
     this.router.navigateByUrl("/users");
   }
-
 }
