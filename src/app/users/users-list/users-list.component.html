@@ -1,15 +1,35 @@
 <h1>Users</h1>
-<table>
-  <tr *ngFor="let user of users">
-    <td>Name: {{user.firstname}}</td>
-    <td>eMail: {{user.eMail}}</td>
-    <td>Password: xxxxwg</td>
-    <div class="form-group">
-      <button
-          class="btn btn-default"
-          [routerLink]="['/users', user.userId]" >
-          Modify
-      </button>
-  </div>
-  </tr>
-</table>
+<div>
+  <button class="btn btn-default" routerLink="/newusers">
+    Add User
+  </button>
+</div>
+<div class="table-responsive">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>eMail</th>
+        <th>BitCoin Wallet</th>
+        <th>Role</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td> {{user?.firstname}}</td>
+        <td> {{user?.lastname}}</td>
+        <td> {{user?.eMail}}</td>
+        <td>{{user?.bitCoinWalletPrivateKey}}</td>
+        <td>{{user?.role}}</td>
+        <td>
+          <div class="form-group">
+            <button class="btn btn-default" [routerLink]="['/users', user.userId]">
+              Modify
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

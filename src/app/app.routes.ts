@@ -6,6 +6,7 @@ import {UserComponent} from "./users/user/user.component";
 import {BooksComponent} from "./books/book/books.component";
 import {NewBookComponent} from "./books/new-book/new-book.component";
 import {HomeComponent} from "./home/home.component";
+import { NewUserComponent } from "./users/new-user/new-user.component";
 
 const APP_ROUTER_PROVIDERS: Routes = [
   {
@@ -36,6 +37,10 @@ const APP_ROUTER_PROVIDERS: Routes = [
   {
     path: "users/:id",
     component: UserComponent
+  },
+  {
+    path: "newusers",
+    component: NewUserComponent
   }
 ];
 export const ROUTING = RouterModule.forRoot(APP_ROUTER_PROVIDERS);

@@ -35,11 +35,13 @@ export class UserComponent implements OnInit {
   }
 
   public updateUser() {
+    console.log(this.selectedUser);
     this.userService.updateUser(this.selectedUser).subscribe((updatedUser) => {
       let userToUpdate = this.users.find((user) => {
         return user.userId === updatedUser.isbn;
       });
       userToUpdate = updatedUser;
+      console.log(userToUpdate);
     });
     this.router.navigateByUrl("/users");
   }

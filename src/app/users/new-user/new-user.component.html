@@ -1,46 +1,43 @@
-<div class="user1">
-  <div *ngIf="editMode">
+<div class="usercreate">
+  <div>
     <form #f="ngForm">
       <div class="form-group">
         <h4 class="card-title">Vorname</h4>
-        <input class="form-control border-input" maxlength="20" [(ngModel)]="selectedUser.firstname" name="firstname" required minlength="3">
+        <input class="form-control border-input" maxlength="20" [(ngModel)]="userToCreate.firstname" name="firstname" required minlength="3">
       </div>
       <div *ngIf="f.controls['firstname']?.hasError('required')"> [required]</div>
 
       <div class="form-group">
         <h4 class="card-title">Nachname:</h4>
-        <input [(ngModel)]="selectedUser.lastname" name="lastname" class="form-control border-input" maxlength="20">
+        <input [(ngModel)]="userToCreate.lastname" name="lastname" class="form-control border-input" maxlength="20">
       </div>
       <div *ngIf="f.controls['lastname']?.hasError('required')"> [required]</div>
       <div *ngIf="!f.controls['lastname']?.hasError('required') && !f.controls['lastname']?.hasError('required')" class="form-group"></div>
      
       <div class="form-group">
         <h4 class="card-title">e-Mail Adresse:</h4>
-        <input [(ngModel)]="selectedUser.eMail" name="email" class="form-control border-input" maxlength="20">
+        <input [(ngModel)]="userToCreate.eMail" name="email" class="form-control border-input" maxlength="20">
       </div>
       <div *ngIf="f.controls['email']?.hasError('required')"> [required]</div>
       <div *ngIf="!f.controls['email']?.hasError('required') && !f.controls['email']?.hasError('required')" class="form-group"></div>
      
       <div class="form-group">
         <h4 class="card-title">Private Key BitcoinWallet:</h4>
-        <input [(ngModel)]="selectedUser.bitCoinWalletPrivateKey" name="pkbc" class="form-control border-input" maxlength="20">
+        <input [(ngModel)]="userToCreate.bitCoinWalletPrivateKey" name="pkbc" class="form-control border-input" maxlength="20">
       </div>
       <div *ngIf="f.controls['pkbc']?.hasError('required')"> [required]</div>
       <div *ngIf="!f.controls['pkbc']?.hasError('required') && !f.controls['pkbc']?.hasError('required')" class="form-group">
-      <button class="btn btn-default" type="button" (click)="updateUser()">
-        Submit
+          <div class="form-group">
+              <h4 class="card-title">Passwort:</h4>
+              <input [(ngModel)]="userToCreate.password" name="password" class="form-control border-input" maxlength="20">
+            </div>
+            <div *ngIf="f.controls['password']?.hasError('required')"> [required]</div>
+            <div *ngIf="!f.controls['password']?.hasError('required') && !f.controls['password']?.hasError('required')" class="form-group"></div>
+            
+      <button class="btn btn-default" type="button" (click)="createNewUser()">
+        Create User
       </button>
       </div>
     </form>
 
   </div>
-    <div *ngIf="!editMode">
-      <h4 class="card-title">Vorname: {{selectedUser?.firstname}}</h4>
-      <p class="card-text">Nachname: {{selectedUser?.lastname}}</p>
-      <p class="card-text">e-Mail: {{selectedUser?.eMail}}</p>
-      <p class="card-text">BitcoinWalletPrivateKey: {{selectedUser?.bitCoinWalletPrivateKey}}</p>
-      <p class="card-text">Id: {{selectedUser?.userId}}</p>
-    </div>
-    <button *ngIf="!editMode" class="btn btn-default" (click)="changeUser()">Edit User
-    </button>
-    </div>

@@ -5,6 +5,7 @@ import { UsersListComponent } from './users-list/users-list.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { UserService } from './services/user.service';
+import { NewUserComponent } from './new-user/new-user.component';
 
 
 @NgModule({
@@ -13,8 +14,9 @@ import { UserService } from './services/user.service';
     RouterModule,
     FormsModule
   ],
-  declarations: [UserComponent,UsersListComponent
-  ],
+  declarations: [UserComponent,UsersListComponent,
+    NewUserComponent
+],
   providers:[
     UserService
   ]
