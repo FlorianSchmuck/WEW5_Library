@@ -11,14 +11,12 @@
         <h4 class="card-title">Nachname:</h4>
         <input [(ngModel)]="userToCreate.lastname" name="lastname" class="form-control border-input" maxlength="20">
       </div>
-      <div *ngIf="f.controls['lastname']?.hasError('required')"> [required]</div>
       <div *ngIf="!f.controls['lastname']?.hasError('required') && !f.controls['lastname']?.hasError('required')" class="form-group"></div>
      
       <div class="form-group">
         <h4 class="card-title">e-Mail Adresse:</h4>
         <input [(ngModel)]="userToCreate.eMail" name="email" class="form-control border-input" maxlength="20">
       </div>
-      <div *ngIf="f.controls['email']?.hasError('required')"> [required]</div>
       <div *ngIf="!f.controls['email']?.hasError('required') && !f.controls['email']?.hasError('required')" class="form-group"></div>
      
       <div class="form-group">
