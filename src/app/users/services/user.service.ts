@@ -17,7 +17,7 @@ export class UserService {
   }
 
   createNewUser(user: User) {
-    console.log(user.eMail);
+    console.log(user.email);
     return this.backendService.post("users", user);
   }
 

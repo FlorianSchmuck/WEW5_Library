@@ -22,10 +22,11 @@ export class NewUserComponent implements OnInit {
   }
 
   createNewUser(){
-    console.log(this.userToCreate.eMail);
+    console.log(this.userToCreate.email);
     this.userService.createNewUser(this.userToCreate).subscribe((userresponse) => {
       this.userToCreate = userresponse;
+      this.router.navigateByUrl("/users");
     });
-    this.router.navigateByUrl("/users");
+
   }
 }

@@ -53,8 +53,9 @@ export class BooksComponent implements OnInit {
         return book.isbn === updatedBook.isbn;
       });
       bookToUpdate = updatedBook;
+      this.router.navigateByUrl("/books");
     });
-    this.router.navigateByUrl("/books");
+
   }
 
 }

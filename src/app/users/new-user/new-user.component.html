@@ -15,13 +15,13 @@
      
       <div class="form-group">
         <h4 class="card-title">e-Mail Adresse:</h4>
-        <input [(ngModel)]="userToCreate.eMail" name="email" class="form-control border-input" maxlength="20">
+        <input [(ngModel)]="userToCreate.email" name="email" class="form-control border-input" maxlength="20">
       </div>
       <div *ngIf="!f.controls['email']?.hasError('required') && !f.controls['email']?.hasError('required')" class="form-group"></div>
      
       <div class="form-group">
         <h4 class="card-title">Private Key BitcoinWallet:</h4>
-        <input [(ngModel)]="userToCreate.bitCoinWalletPrivateKey" name="pkbc" class="form-control border-input" maxlength="20">
+        <input [(ngModel)]="userToCreate.bitcoinWalletPrivateKey" name="pkbc" class="form-control border-input" maxlength="20">
       </div>
       <div *ngIf="f.controls['pkbc']?.hasError('required')"> [required]</div>
       <div *ngIf="!f.controls['pkbc']?.hasError('required') && !f.controls['pkbc']?.hasError('required')" class="form-group">
@@ -35,6 +35,10 @@
       <button class="btn btn-default"  *ngIf="!f?.controls['password']?.hasError('minlength') && !f?.controls['email']?.hasError('required')" type="button" (click)="createNewUser()">
         Create User
       </button>
+      <div class="form-group">
+        <h4 class="card-title">Is Admin:</h4>
+        <input [(ngModel)]="userToCreate.role" type="radio" name="role">
+      </div>
       </div>
     </form>
 

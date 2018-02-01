@@ -24,12 +24,12 @@
     </form>
   </div>
   <div *ngIf="!editMode">
-    <h4 class="card-title">Title: {{selectedBook.title}}</h4>
-    <p class="card-text">Author: {{selectedBook.author}}</p>
-    <p class="card-text">Pages: {{selectedBook.pages}}</p>
-    <p class="card-text">ISBN: {{selectedBook.isbn}}</p>
-    <p class="card-text">Available: {{selectedBook.available}}</p>
-    <p class="card-text">Return date: {{selectedBook.returnDate}}</p>
+    <h4 class="card-title">Title: {{selectedBook?.title}}</h4>
+    <p class="card-text">Author: {{selectedBook?.author}}</p>
+    <p class="card-text">Pages: {{selectedBook?.pages}}</p>
+    <p class="card-text">ISBN: {{selectedBook?.isbn}}</p>
+    <p class="card-text">Available: {{selectedBook?.available}}</p>
+    <p class="card-text">Return date: {{selectedBook?.returnDate}}</p>
   </div>
   <button *ngIf="!editMode && checkIfUserHasRight()" class="btn btn-default"
           (click)="changeBook()">Edit Book

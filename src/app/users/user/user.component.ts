@@ -41,9 +41,9 @@ export class UserComponent implements OnInit {
         return user.userId === updatedUser.isbn;
       });
       userToUpdate = updatedUser;
-      console.log(userToUpdate);
+      this.router.navigateByUrl("/users");
     });
-    this.router.navigateByUrl("/users");
+
   }
 }
 

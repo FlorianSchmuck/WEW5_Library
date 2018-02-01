@@ -16,14 +16,14 @@
      
       <div class="form-group">
         <h4 class="card-title">e-Mail Adresse:</h4>
-        <input [(ngModel)]="selectedUser.eMail" name="email" class="form-control border-input" maxlength="20">
+        <input [(ngModel)]="selectedUser.email" name="email" class="form-control border-input" maxlength="20">
       </div>
       <div *ngIf="f.controls['email']?.hasError('required')"> [required]</div>
       <div *ngIf="!f.controls['email']?.hasError('required') && !f.controls['email']?.hasError('required')" class="form-group"></div>
      
       <div class="form-group">
         <h4 class="card-title">Private Key BitcoinWallet:</h4>
-        <input [(ngModel)]="selectedUser.bitCoinWalletPrivateKey" name="pkbc" class="form-control border-input" maxlength="20">
+        <input [(ngModel)]="selectedUser.bitcoinWalletPrivateKey" name="pkbc" class="form-control border-input" maxlength="20">
       </div>
       <div *ngIf="f.controls['pkbc']?.hasError('required')"> [required]</div>
       <div *ngIf="!f.controls['pkbc']?.hasError('required') && !f.controls['pkbc']?.hasError('required')" class="form-group">
@@ -43,8 +43,8 @@
     <div *ngIf="!editMode">
       <h4 class="card-title">Vorname: {{selectedUser?.firstname}}</h4>
       <p class="card-text">Nachname: {{selectedUser?.lastname}}</p>
-      <p class="card-text">e-Mail: {{selectedUser?.eMail}}</p>
-      <p class="card-text">BitcoinWalletPrivateKey: {{selectedUser?.bitCoinWalletPrivateKey}}</p>
+      <p class="card-text">e-Mail: {{selectedUser?.email}}</p>
+      <p class="card-text">BitcoinWalletPrivateKey: {{selectedUser?.bitcoinWalletPrivateKey}}</p>
       <p class="card-text">Id: {{selectedUser?.userId}}</p>
     </div>
     <button *ngIf="!editMode" class="btn btn-default" (click)="changeUser()">Edit User

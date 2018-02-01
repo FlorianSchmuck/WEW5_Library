@@ -27,5 +27,4 @@ export class NewBookComponent implements OnInit {
     });
     this.router.navigateByUrl("/books");
   }
-
 }

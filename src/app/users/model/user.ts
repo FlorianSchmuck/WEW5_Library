@@ -1,9 +1,9 @@
 export class User {
   firstname: string;
   lastname: string;
-  eMail: string;
+  email: string;
   password: string;
-  bitCoinWalletPrivateKey: string;
+  bitcoinWalletPrivateKey: string;
   userId: number;
   role: string;
 }
