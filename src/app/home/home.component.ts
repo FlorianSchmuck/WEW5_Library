@@ -24,12 +24,11 @@ export class HomeComponent implements OnInit {
   }
 
   submit() {
-    console.log(this.login);
     this.loginService.authenticate(this.login).subscribe((user) => {
       this.authenticatedUserService.authenticatedUser = user;
-      console.log(user);
       this.authenticatedUser = user;
     }, (error) => {
+      alert(error.error.message);
       this.authenticatedUserService.authenticatedUser = null;
     });
   }
