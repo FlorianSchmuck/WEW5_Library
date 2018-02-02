@@ -30,10 +30,10 @@
             <div *ngIf="f.controls['password']?.hasError('minlength')"> Minimum length for Password is 8 characters</div>
             <div class="form-group">
               <label for="role">
-                <input [(ngModel)]="userToCreate.role"  value="true" type="radio" name="role" margin-right="50">Admin
+                <input [(ngModel)]="userToCreate.role"  value="ADMIN" type="radio" name="role" margin-right="50">Admin
               </label>
               <label for="role2">
-                <input [(ngModel)]="userToCreate.role" value="false" type="radio" name="role2">Guest
+                <input [(ngModel)]="userToCreate.role" value="NORMAL" type="radio" name="role2">Guest
               </label>
 
             </div>     

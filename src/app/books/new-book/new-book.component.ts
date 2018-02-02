@@ -24,7 +24,8 @@ export class NewBookComponent implements OnInit {
   public createBook() {
     this.bookService.createNewBook(this.book).subscribe((newBook) => {
       this.book = newBook;
+      this.router.navigateByUrl("/books");
     });
-    this.router.navigateByUrl("/books");
+
   }
 }
